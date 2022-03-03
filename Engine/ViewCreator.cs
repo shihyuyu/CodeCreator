@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace CodeCreator
 {
-    public class CodeCreator : ICreator
-    {
+	public class ViewCreator : ICreator
+	{
+		public void Init()
+		{
+			throw new NotImplementedException();
+		}
+
 		public void Create()
-        {
-            throw new NotImplementedException();
-        }
+		{
+			throw new NotImplementedException();
+		}
+
 
 		public void Output()
 		{
 			throw new NotImplementedException();
 		}
-    }
+	}
 }

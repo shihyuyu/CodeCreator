@@ -1,0 +1,42 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="$(ProjectDir)bin\Debug\CodeCreator.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeCreator" #>
+<#@ output extension=".cs" #>
+
+<#
+string ClassName = "aaa";
+string[] Properties = new string[] { "aa", "bb", "cc" };
+    DataTable dt = new DataTable();
+    dt.Columns.Add("Name");
+    dt.Columns.Add("Type");
+    dt.Rows.Add("dd", "string");
+    dt.Rows.Add("ee", "string");
+    dt.Rows.Add("ff", "int");
+#>
+// -----------------------------------------------------------------------------------
+// 
+// THIS IS A AUTO GENERATED FILE. DO NOT MAKE MANUAL CHANGE.
+//
+// -----------------------------------------------------------------------------------
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Xml;
+
+namespace CodeCreator.Auto
+{
+    public class <#= ClassName #>
+    {
+<# foreach(DataRow dr in dt.Rows) { #>
+<# if (dr["Name"] != null) { #>
+        public <#= dr["Type"].ToString() #> <#= dr["Name"].ToString() #> { get; set; }
+<# } #>
+<# } #>
+    }
+}

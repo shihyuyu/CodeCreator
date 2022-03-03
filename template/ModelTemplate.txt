@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CodeCreator
+{
+	public class {#ClassName#}
+	{
+		#region "property"
+		{#PropertyName#}
+		#endregion
+		#region "public function"
+		{#PublicMethodName#}
+		#endregion
+		#region "private function"
+		{#PrivateMethodName#}
+		#endregion
+	}
+}

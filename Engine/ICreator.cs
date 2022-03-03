@@ -9,11 +9,15 @@ namespace CodeCreator
 	public interface ICreator
 	{
 		/// <summary>
-		/// 建立類別
+		/// Creator初始化
+		/// </summary>
+		void Init();
+		/// <summary>
+		/// 建立範本
 		/// </summary>
 		void Create();
 		/// <summary>
-		/// 輸出檔案
+		/// 輸出範本
 		/// </summary>
 		void Output();
 	}

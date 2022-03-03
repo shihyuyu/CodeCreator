@@ -8,6 +8,11 @@ namespace CodeCreator
 {
 	public class SqlCreator : ICreator
 	{
+		public void Init()
+		{
+			throw new NotImplementedException();
+		}
+
 		public void Create()
 		{
 			throw new NotImplementedException();

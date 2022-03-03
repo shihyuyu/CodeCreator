@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,14 +44,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeCreator.cs" />
+    <Compile Include="Core\DAL\SchemaDAO.cs" />
+    <Compile Include="Core\Models\MyInstances.cs" />
+    <Compile Include="Core\Models\SchemaVO.cs" />
+    <Compile Include="Core\Tools\Translator.cs" />
+    <Compile Include="Engine\CodeCreator.cs" />
+    <Compile Include="Core\Models\MyProperties.cs" />
+    <Compile Include="Core\TemplateCode.cs" />
+    <Compile Include="Engine\CodeFactory.cs" />
+    <Compile Include="Tools\CMDHelper.cs" />
+    <Compile Include="Tools\DBHelper.cs" />
     <Compile Include="Tools\FileHelper.cs" />
-    <Compile Include="SqlCreator.cs" />
-    <Compile Include="ICreator.cs" />
+    <Compile Include="Engine\SqlCreator.cs" />
+    <Compile Include="Engine\ICreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Engine\ViewCreator.cs" />
+    <Compile Include="Tools\ReflactionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="template\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="template\ControllerTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\CreateTableTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\DAOTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\ViewTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\HTMLTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\VOTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\BOTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="template\ModelTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

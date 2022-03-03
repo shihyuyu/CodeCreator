@@ -1,0 +1,100 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CodeCreator
+{
+	public class {#ClassName#}
+	{
+		/// <summary>
+		/// 查詢{#ClassName#}全部資料
+		/// </summary>
+		/// <returns></returns>
+		public List<{#ModelName#}> {#ClassName#}QueryAll()
+		{
+			string strSQL = " select * from {#tablename#} ";
+			var list = DBHelper.Query<{#ModelName#}>(strSQL);
+			return list;
+		}
+		/// <summary>
+		/// 查詢{#ClassName#}單筆資料by PK
+		/// </summary>
+		/// <param name="PKID"></param>
+		/// <returns></returns>
+		public {#ModelName#} {#ClassName#}QueryOne(string PKID)
+		{
+			string strSQL = " select * from {#tablename#} where {#primarykey#} ";
+			var item = DBHelper.QueryOne<{#ModelName#}>(strSQL, new { PKID });
+			return item;
+		}
+		/// <summary>
+		/// 查詢{#ClassName#}資料帶條件
+		/// </summary>
+		/// <param name="vo"></param>
+		/// <returns></returns>
+		public List<{#ModelName#}> {#ClassName#}Query({#ModelName#} vo)
+		{
+			string strSQL = " select * from {#tablename#} where {#where condition#} ";
+			var list = DBHelper.Query<{#ModelName#}>(strSQL, vo);
+			return list;
+		}
+		/// <summary>
+		/// 新增{#ClassName#}資料
+		/// </summary>
+		/// <param name="vo"></param>
+		/// <returns></returns>
+		public bool {#ClassName#}Insert({#ModelName#} vo)
+		{
+			string strSQL = " insert into {#tablename#}({#insert column#}) values ({#insert parameter#}) ";
+			bool ret = DBHelper.Execute(strSQL, vo) > 0;
+			return ret;
+		}
+		/// <summary>
+		/// 更新{#ClassName#}資料單筆資料by PK
+		/// </summary>
+		/// <param name="PKID"></param>
+		/// <returns></returns>
+		public bool {#ClassName#}UpdateOne(string PKID)
+		{
+			string strSQL = " update {#tablename#} set {#update column#} where {#primarykey#} ";
+			bool ret = DBHelper.Execute(strSQL, new { PKID }) > 0;
+			return ret;
+		}
+		/// <summary>
+		/// 更新{#ClassName#}資料單筆資料by PK
+		/// </summary>
+		/// <param name="vo"></param>
+		/// <returns></returns>
+		public bool {#ClassName#}Update({#ModelName#} vo)
+		{
+			string strSQL = " update {#tablename#} set {#update column#} where {#where condition#} ";
+			bool ret = DBHelper.Execute(strSQL, vo) > 0;
+			return ret;
+		}
+		/// <summary>
+		/// 刪除{#ClassName#}資料單筆資料by PK
+		/// </summary>
+		/// <param name="PKID"></param>
+		/// <returns></returns>
+		public bool {#ClassName#}DeleteOne(string PKID)
+		{
+			string strSQL = " delete from {#tablename#} where {#primarykey#} ";
+			bool ret = DBHelper.Execute(strSQL, new { PKID }) > 0;
+			return ret;
+		}
+		/// <summary>
+		/// 刪除{#ClassName#}資料單筆資料
+		/// </summary>
+		/// <param name="vo"></param>
+		/// <returns></returns>
+		public bool {#ClassName#}Delete({#ModelName#} vo)
+		{
+			string strSQL = " delete from {#tablename#} where {#where condition#} ";
+			bool ret = DBHelper.Execute(strSQL, vo) > 0;
+			return ret;
+		}
+	}
+}
